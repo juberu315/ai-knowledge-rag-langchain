@@ -4,11 +4,10 @@ import os
 # Load .env variables
 from dotenv import load_dotenv
 
+from langchain_huggingface import HuggingFaceEmbeddings
+
 # OpenAI chat model
 from langchain_openai import ChatOpenAI
-
-# OpenAI embedding model
-from langchain_openai import OpenAIEmbeddings
 
 # PostgreSQL pgvector integration
 from langchain_postgres import PGVector
@@ -33,8 +32,10 @@ COLLECTION_NAME = os.getenv("COLLECTION_NAME", "rag_documents")
 
 
 # Create embedding model
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small"
+
+
+embeddings = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-small-en-v1.5"
 )
 
 
@@ -57,7 +58,7 @@ retriever = vector_store.as_retriever(
 
 # Create LLM model
 llm = ChatOpenAI(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     temperature=0
 )
 

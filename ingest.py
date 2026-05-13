@@ -11,7 +11,8 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # OpenAI embedding model
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 
 # PostgreSQL pgvector integration
 from langchain_postgres import PGVector
@@ -29,9 +30,9 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME", "rag_documents")
 
 
-# Create embedding model
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small"
+
+embeddings = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-small-en-v1.5"
 )
 
 
