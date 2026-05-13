@@ -1,0 +1,117 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Python Cache / Testing
+# =========================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# =========================
+# Build Files
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Database
+# =========================
+*.sqlite3
+*.db
+
+# =========================
+# Uploaded Documents
+# =========================
+uploads/
+documents/
+temp/
+tmp/
+
+# =========================
+# Vector / Embedding Cache
+# =========================
+embeddings_cache/
+vector_cache/
+*.index
+
+# =========================
+# LangChain
+# =========================
+.langchain/
+
+# ChromaDB
+chroma/
+chroma_db/
+
+# FAISS
+faiss_index/
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Uvicorn / FastAPI
+# =========================
+uvicorn.log
+
+# =========================
+# Node.js (Optional Frontend)
+# =========================
+node_modules/
+.next/
+out/
+
+# =========================
+# Misc
+# =========================
+*.tmp
+*.bak
