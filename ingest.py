@@ -9,6 +9,7 @@ from langchain_community.document_loaders import PyPDFLoader
 
 # Split large text into smaller chunks
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_experimental.text_splitter import SemanticChunker
 
 # OpenAI embedding model
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -45,13 +46,16 @@ def ingest_pdf(file_path: str):
     documents = loader.load()
 
     # Create text splitter
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,        # Maximum characters per chunk
-        chunk_overlap=200,      # Overlap keeps context between chunks
-    )
+    # text_splitter = RecursiveCharacterTextSplitter(
+    #     chunk_size=1000,        # Maximum characters per chunk
+    #     chunk_overlap=200,      # Overlap keeps context between chunks
+    # )
+
+    splitter = SemanticChunker(embeddings)
+
 
     # Split PDF pages into smaller chunks
-    chunks = text_splitter.split_documents(documents)
+    chunks = splitter.split_documents(documents)
 
     # Store chunks and embeddings in PostgreSQL pgvector
     vector_store = PGVector.from_documents(
